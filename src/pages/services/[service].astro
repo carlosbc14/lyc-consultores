@@ -1,0 +1,54 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { services } from "../../utils";
+
+const { service: serviceSlug } = Astro.params;
+const service = services.find((service) => service.slug === serviceSlug);
+
+export const getStaticPaths = (() => {
+  return services.map((service) => ({
+    params: { service: service.slug },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<Layout title={`LYC Consultores - ${service?.title}`}>
+  <section id="service" class="h-100">
+    <div class="container-fluid p-0 h-100">
+      <div class="row g-0 h-100">
+        <div
+          class="col-lg-6 order-lg-2 text-white service-img"
+          style={`background-image: url("/img/services/${serviceSlug}.webp")`}
+        >
+        </div>
+        <div class="col-lg-6 order-lg-1 my-auto service-text">
+          <h2>{service?.title}</h2>
+          <p class="mb-4">{service?.description}</p>
+          <div set:html={service?.htmlContent} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  #service .service-text {
+    padding: 3rem;
+  }
+
+  #service .service-img {
+    min-height: 30rem;
+    background-color: #101010;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  @media (min-width: 768px) {
+    #service .service-text {
+      padding: 7rem;
+    }
+  }
+</style>

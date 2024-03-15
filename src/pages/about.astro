@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="LYC Consultores - Nosotros">
+  <section id="about">
+    <div class="container-fluid p-0">
+      <div class="row g-0">
+        <div class="col-lg-6 order-lg-2 text-white about-img" id="about-1">
+        </div>
+        <div class="col-lg-6 order-lg-1 my-auto about-text">
+          <h2>Nosotros</h2>
+          <p>
+            LYC Consultores cuenta con equipo con más de 30 años de experiencia
+            en soluciones de negocios además es una empresa pionera en la
+            entrega de soluciones en combinación de optimización de impuestos,
+            manejo de finanzas, estrategias de marketing, control stock,
+            utilizando inteligencia empresarial, a través de la automatización
+            de procesos y de la analítica avanzada. Nuestros clientes se
+            distribuyen a lo largo de sectores como el inmobiliario,
+            construcción, transporte logístico, agrícola, productivo,
+            telecomunicaciones, venta mayorista, salud, entre otros. Nuestro
+            espíritu se sustenta en el uso experto en el manejo de optimización
+            de impuestos y tecnologías que permitan mejorar el control de las
+            empresas, identificar nuevas oportunidades, y tomar decisiones
+            estratégicas que potencien el negocio. Todo esto, a través
+            soluciones que van desde un software de nicho, hasta la instalación
+            de un sistema integrado de captura, procesamiento, análisis y
+            predicción de datos.
+          </p>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-lg-6 text-white about-img" id="about-2"></div>
+        <div class="col-lg-6 my-auto about-text">
+          <h2>Misión</h2>
+          <p class="mb-4">
+            Realizar servicios de consultoría y entrega de conocimientos de alta
+            calidad para aquellos clientes que aspiran a mejorar y optimizar sus
+            organizaciones mediante la mejora de la competitividad en el ámbito
+            empresarial y la modernización financiera, tecnológica, y
+            administrativa, desde la perspectiva de mejora continua, innovación
+            y calidad en la gestión; por todo ello conseguiremos en todo momento
+            un cliente satisfecho.
+          </p>
+          <h2>Visión</h2>
+          <p class="mb-4">
+            Llegar a ser un referente y ser reconocidos en el sector, por
+            nuestra ética y genialidad de mejoras constantes en los servicios
+            entregados, caracterizándonos por fomentar e implantar sistemas
+            avanzados en administración, gestión y robotización.
+          </p>
+          <h2>Valores</h2>
+          <p class="mb-0">
+            Para lograr nuestra misión la Compañía, presenta estrategias, unidad
+            organizacional muy concreta, contando con un excelente equipo humano
+            que hace suyos los valores establecidos por LYC ya que, en su labor
+            diario, nos identifican como una organización referente en nuestro
+            sector.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  #about .about-text {
+    padding: 3rem;
+  }
+
+  #about .about-img {
+    min-height: 30rem;
+  }
+
+  @media (min-width: 768px) {
+    #about .about-text {
+      padding: 7rem;
+    }
+  }
+
+  #about-1 {
+    background-color: #101010;
+    background-image: url("/img/about-1.webp");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  #about-2 {
+    background-color: #101010;
+    background-image: url("/img/about-2.webp");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+</style>
