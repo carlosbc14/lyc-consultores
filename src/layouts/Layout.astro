@@ -1,4 +1,6 @@
 ---
+import "../styles/styles.css";
+
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
@@ -90,7 +92,6 @@ const { title } = Astro.props;
     <link rel="manifest" href="/manifest.json" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link href="/src/styles/styles.css" rel="stylesheet" />
   </head>
   <body class="d-flex flex-column">
     <Header />
@@ -100,9 +101,7 @@ const { title } = Astro.props;
     </main>
 
     <Footer />
-    <script
-      is:inline
-      src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/bootstrap.bundle.min.js"></script>
   </body>
 </html>
 
