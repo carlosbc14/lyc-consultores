@@ -50,21 +50,23 @@ import { services, clients, resources } from "../utils";
   </Section>
 
   <Section id="clients" title="Nuestros clientes" variant="primary">
-    <div class="row">
-      <ul class="col-md-12 col-lg-6">
-        {
-          clients
-            .slice(0, Math.floor(clients.length / 2))
-            .map((clientName) => <li>{clientName}</li>)
-        }
-      </ul>
-      <ul class="col-md-12 col-lg-6">
-        {
-          clients
-            .slice(Math.floor(clients.length / 2), clients.length)
-            .map((clientName) => <li>{clientName}</li>)
-        }
-      </ul>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4">
+      {
+        clients.map(({ name, slug }) => (
+          <div class="col text-center">
+            <div class="card">
+              <div class="card-img">
+                <img
+                  src={`/img/clients/${slug}.webp`}
+                  style="width: 100%; object-fit: cover;"
+                  loading="lazy"
+                  alt={name}
+                />
+              </div>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </Section>
 
@@ -97,56 +99,62 @@ import { services, clients, resources } from "../utils";
   </Section>
 
   <Section id="contact" title="Contáctanos" variant="primary">
-    <form>
-      <div class="row align-items-stretch mb-5">
-        <div class="col-md-6">
-          <div class="form-group mb-3">
-            <input
-              class="form-control"
-              name="name"
-              type="text"
-              placeholder="Nombre *"
-            />
-          </div>
-
-          <div class="form-group mb-3">
-            <input
-              class="form-control"
-              name="email"
-              type="email"
-              placeholder="Correo Electrónico *"
-            />
-          </div>
-
-          <div class="form-group mb-md-3">
-            <input
-              class="form-control"
-              name="phone"
-              type="tel"
-              placeholder="Número de teléfono *"
-            />
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="form-group form-group-textarea h-100">
-            <textarea
-              class="form-control h-100"
-              name="message"
-              placeholder="Mensaje *"></textarea>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-lg-6 mb-lg-3">
+        <iframe
+          class="map bg-white"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26637.65122209123!2d-70.61549!3d-33.430898!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf742a1a3f35%3A0xced2ef3632c9ac20!2sAv.%20Pocuro%202255%2C%207510852%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1714241302885!5m2!1ses!2sus"
+          width="100%"
+          height="100%"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
+      <div class="col-lg-6">
+        <form id="contact-form">
+          <div class="row align-items-stretch mb-5">
+            <div class="form-group mb-3">
+              <input
+                class="form-control"
+                name="email"
+                type="email"
+                placeholder="Correo Electrónico *"
+                required
+              />
+            </div>
 
-      <div class="text-center">
-        <button
-          class="btn btn-light fs-5 text-uppercase fw-semibold py-3 px-4"
-          type="submit"
-        >
-          Enviar
-        </button>
+            <div class="form-group mb-3">
+              <input
+                class="form-control"
+                name="subject"
+                type="text"
+                placeholder="Asunto *"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                name="message"
+                placeholder="Mensaje *"
+                rows="6"
+                required></textarea>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              class="btn btn-light fs-5 text-uppercase fw-semibold py-3 px-4"
+              type="submit"
+            >
+              Contactar
+            </button>
+          </div>
+        </form>
+        <a href="mailto:contacto@lycconsultores.cl" id="mailto"></a>
       </div>
-    </form>
+    </div>
   </Section>
 </Layout>
 
@@ -175,20 +183,49 @@ import { services, clients, resources } from "../utils";
   }
 
   .card-img {
-    height: 100%;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem;
   }
 
-  .mb-md-3 {
+  @media (max-width: 992px) {
+    .map {
+      min-height: 300px;
+    }
+  }
+
+  .mb-lg-3 {
     margin-bottom: 0 !important;
   }
 
-  @media (max-width: 768px) {
-    .mb-md-3 {
+  @media (max-width: 992px) {
+    .mb-lg-3 {
       margin-bottom: 1rem !important;
     }
   }
 </style>
+
+<script>
+  const $form: HTMLFormElement = document.querySelector("#contact-form");
+  const $mailto: HTMLAnchorElement = document.querySelector("#mailto");
+
+  $form.addEventListener("submit", handleSubmit);
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+
+    const form: FormData = new FormData(this);
+    const subject: FormDataEntryValue = form.get("subject");
+    const body: FormDataEntryValue = form.get("message");
+
+    if (typeof subject !== "string" || typeof body !== "string") return;
+
+    $mailto.setAttribute(
+      "href",
+      `mailto:contacto@lycconsultores.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    );
+    $mailto.click();
+  }
+</script>

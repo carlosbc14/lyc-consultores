@@ -5,6 +5,11 @@ interface Service {
 	htmlContent: string;
 }
 
+interface Client {
+	name: string;
+	slug: string;
+}
+
 interface Resource {
 	title: string;
 	link: string;
@@ -15,7 +20,7 @@ export const services: Array<Service> = [
 	{
 		title: "Expertos en cada área",
 		description:
-			"Contamos con personal calificado y servicios de ingenieros enfocados en procesos y certificación de norma ISO 9001.",
+			"Contamos con personal calificado y servicios de ingenieros enfocados en procesos.",
 		slug: "experts",
 		htmlContent: `
 		<h5>Nuestros Profesionales</h5>
@@ -26,16 +31,17 @@ export const services: Array<Service> = [
 			<li>Prevencionistas de Riesgo</li>
 			<li>Ingenieros en TI</li>
 			<li>
-				Contamos con Profesionales con estudios superiores Magister en
+				Contamos con Profesionales con estudios superiores Magister en:
 				<ul>
 					<li>Negocio Nacionales e Internacionales</li>
 					<li>Finanzas Locales y Corporativas</li>
 					<li>
 						Planificación Tributaría aplicando la Reforma
 						<ul>
-							<li>Renta Presunta</li>
-							<li>Atribuida</li>
-							<li>Semi integrada</li>
+							<li>Articulo 14 A - Grandes Contribuyente</li>
+							<li>Articulo 14 B ) N°1 D ) N°3 -14 D ) N°8 - Pyme</li>
+							<li>Presunta</li>
+							<li>Tributación Internacional retenciones de impuestos y aplicación de Tratados para la Doble Tributación</li>
 						</ul>
 					</li>
 				</ul>
@@ -44,29 +50,10 @@ export const services: Array<Service> = [
 		`,
 	},
 	{
-		title: "Servicios tributarios y legales",
-		description:
-			"Orientados a la empresa (reorganización de patrimonio, gestión de riesgo, optimización tributaria, gestión de trabajadores, entre otros).",
-		slug: "legal-services",
-		htmlContent: `
-		<ul>
-			<li>Defensa Tributaria por impuestos u otros mal aplicados por el estado</li>
-			<li>Servicios de cobranzas judicial</li>
-			<li>Servicio Legal Laboral</li>
-			<li>Servicio Legal Civil por cambios organizacional con escrituras públicas</li>
-			<li>Planificación Tributaria aplicando nuevos artículos tributarios anti-elución</li>
-			<li>Términos de Giro</li>
-			<li>Defensa Municipal por cobros o multas excesivas</li>
-			<li>Mejora la eficiencia de Impuestos y Finanzas</li>
-			<li>Litigios Civiles y Tributarios</li>
-		</ul>
-		`,
-	},
-	{
-		title: "Responsabilidad",
+		title: "Asesorías y consultorías",
 		description:
 			"Trabajamos día y noche para cumplir con las necesidades de nuestros clientes de manera profesional.",
-		slug: "responsibility",
+		slug: "advisory-consulting",
 		htmlContent: `
 		<ul>
 			<li>En cambios organizacional y reestructuración de negocios</li>
@@ -74,22 +61,15 @@ export const services: Array<Service> = [
 			<li>Mejoras en control y manejo de proyectos</li>
 			<li>Mejoras en planes de ventas usando estadísticas y distribuciones de mercado</li>
 			<li>Búsqueda de partner, clientes, proveedores y personal estratégico del negocio</li>
-			<li>Declaración Anual Renta Socios</li>
 			<li>Recomendación y Consultoría a empresas en Quiebra</li>
-			<li>Presentación Anual de Declaraciones Juradas</li>
-			<li>Reclamación al SII por impuestos mal cobrados o en exceso</li>
-			<li>Declaración jurada solicitud de devolución de IVA Activo Fijo</li>
-			<li>Declaración jurada solicitud de devolución de IVA Exportador</li>
-			<li>Tributación Internacional y aplicación de tratados</li>
-			<li>Términos de Giro</li>
 		</ul>
 		`,
 	},
 	{
-		title: "Efectividad",
+		title: "Mejoras empresarial",
 		description:
 			"El mejor asesoramiento en cuanto a mejora de procesos, rentabilidad y planes de crecimiento controlado.",
-		slug: "effectiveness",
+		slug: "improvements",
 		htmlContent: `
 		<ul>
 			<li>Mejoras de negocios</li>
@@ -99,7 +79,7 @@ export const services: Array<Service> = [
 		`,
 	},
 	{
-		title: "Valoración",
+		title: "Valoración financiera y gestión",
 		description:
 			"Servicio de valoración de empresas y evaluación de proyectos.",
 		slug: "assessment",
@@ -111,6 +91,53 @@ export const services: Array<Service> = [
 			<li>Valoración de marca y posicionamiento</li>
 			<li>Estrategia empresarial y de negocios</li>
 			<li>Prospección de nuevos negocios</li>
+			<li>Determinación de KPI gestión avanzada</li>
+		</ul>
+		`,
+	},
+	{
+		title: "Contabilidad y remuneraciones",
+		description:
+			"Gestión financiera integral y cumplimiento legal.",
+		slug: "accounting-remunerations",
+		htmlContent: `
+		<ul>
+			<li>Confección de Balances y Estado de Resultados bajo normas IFRS</li>
+			<li>Declaración Mensual de Impuestos</li>
+			<li>Confección de Libros exigidos por la norma tributaria libro diario, libro mayor, libro de inventarios y balances</li>
+			<li>Confección de los contratos de trabajos y anexos de contratos</li>
+			<li>Asesoramiento en la contratación de trabajadores extranjeros</li>
+			<li>Generar certificados F30 y F30-1 de la Dirección de Trabajo</li>
+			<li>Confección de las liquidaciones de remuneraciones y planillas de imposiciones</li>
+			<li>Confección de finiquitos y la correcta aplicación de las causales de despido</li>
+		</ul>
+		`,
+	},
+	{
+		title: "Servicios tributarios y legales",
+		description:
+			"Orientados a la empresa (reorganización de patrimonio, gestión de riesgo, optimización tributaria, gestión de trabajadores, entre otros).",
+		slug: "legal-services",
+		htmlContent: `
+		<ul>
+			<li>Reclamación al SII por impuestos mal cobrados o en exceso</li>
+			<li>Declaración Anual Renta Socios</li>
+			<li>Declaración Anual Renta Personas Naturales</li>
+			<li>Declaración Anual Renta Personas extranjeras</li>
+			<li>Declaración Anual Renta Empresas extranjeras</li>
+			<li>Declaración jurada solicitud de devolución de IVA Activo Fijo</li>
+			<li>Presentación Anual de Declaraciones Jurada</li>
+			<li>Declaración jurada solicitud de devolución de IVA Exportador</li>
+			<li>Tributación Internacional y aplicación de tratados</li>
+			<li>Términos de Giro</li>
+			<li>Defensa Tributaria por impuestos u otros mal aplicados por el estado</li>
+			<li>Servicios de cobranzas judicial</li>
+			<li>Servicio Legal Laboral</li>
+			<li>Servicio Legal Civil por cambios organizacional con escrituras públicas</li>
+			<li>Planificación Tributaria aplicando nuevos artículos tributarios anti-elución</li>
+			<li>Defensa Municipal por cobros o multas excesivas</li>
+			<li>Mejora la eficiencia de Impuestos y Finanzas</li>
+			<li>Litigios Civiles y Tributarios</li>
 		</ul>
 		`,
 	},
@@ -163,46 +190,109 @@ export const services: Array<Service> = [
 		</ul>
 		`,
 	},
-	{
-		title: "Contabilidad y remuneraciones",
-		description:
-			"Gestión financiera integral y cumplimiento legal",
-		slug: "accounting-remunerations",
-		htmlContent: `
-		<ul>
-			<li>Confección de Balances Clasificados y Estado de resultados, entregados periódicamente</li>
-			<li>Declaración Mensual de Impuestos</li>
-			<li>Confección y envío de libros de compra y ventas formato electrónico al SII</li>
-			<li>Confección de Libros Contables diario, mayores, balances</li>
-			<li>Confección de los contratos de trabajos y anexos de contratos</li>
-			<li>Asesoramiento en la contratación de trabajadores extranjeros</li>
-			<li>Generar certificados F30 y F30-1 de la Dirección de Trabajo</li>
-			<li>Confección de las liquidaciones de remuneraciones y planillas de imposiciones</li>
-			<li>Confección de finiquitos y la correcta aplicación de las causales de despido</li>
-		</ul>
-		`,
-	},
 ];
 
-export const clients: Array<string> = [
-	"GlobalmedSpA (Implantes Médicos e Insumos Médicos)",
-	"Ingeniería y Construcción Gamma Spa (Inmobiliaria y Construcción)",
-	"Alma-Terra SpA (Movimientos de Tierra)",
-	"Sociedad Comercial KyrosLtda (Consultores SAP y TI)",
-	"Call 2K SpA (Servicio de Call Center)",
-	"YTD Consultores Ltda (Servicio de Personal)",
-	"OTEC Capacítanos (OTEC)",
-	"Comercial VyCLtda. (Inversiones e Inmobiliaria)",
-	"Administradora de Fondos de Inversión VyC S.A.",
-	"Asesoría e Inversiones Trinidad S.A. (Inversiones Internacionales)",
-	"Crema PublicitariaLtda (Venta de productos Masivos y Servicios de Publicidad)",
-	"Asociaciones de Agricultores (San Vicente de Tagua Tagua)",
-	"Transportes AM Escorpio EIRL (Transporte liviano)",
-	"Constructora Creando SpA (Construcciones y remodelaciones de bienes raíces)",
-	"KINEMED SpA (Profesionales Kinesiología)",
-	"Sociedad de Prestaciones Odontológicas AYSLtda (Servicio Dental)",
-	"Inmobiliaria AyA S.A.",
-	"Comercial AYUB (Venta de productos Masivos y Servicios de Publicidad)",
+export const clients: Array<Client> = [
+	{
+		name: "Globalmed SpA (Implantes Médicos e Insumos Médicos)",
+		slug: "globalmed",
+	},
+	{
+		name: "Global Implant SpA (Implantes Médicos e Insumos Médicos)",
+		slug: "global-implant",
+	},
+	{
+		name: "Ingeniería y Construcción Gamma Spa (Inmobiliaria y Construcción)",
+		slug: "gamma",
+	},
+	{
+		name: "Alma-Terra SpA (Movimientos de Tierra)",
+		slug: "alma-terra",
+	},
+	{
+		name: "Eco Rental SpA",
+		slug: "eco-rental",
+	},
+	{
+		name: "Sociedad Comercial KyrosLtda (Consultores SAP y TI)",
+		slug: "kyros",
+	},
+	{
+		name: "Call 2K SpA (Servicio de Call Center)",
+		slug: "2call",
+	},
+	{
+		name: "YTD Consultores Ltda (Servicio de Personal)",
+		slug: "ytd-consultores",
+	},
+	{
+		name: "ProPipe",
+		slug: "propipe",
+	},
+	{
+		name: "ARAS (Servicio Dental)",
+		slug: "aras",
+	},
+	{
+		name: "TECNOCAL",
+		slug: "tecnocal",
+	},
+	{
+		name: "Transportes AM Escorpio EIRL (Transporte liviano)",
+		slug: "transportes-am-escorpio",
+	},
+	{
+		name: "Comercial VyCLtda. (Inversiones e Inmobiliaria)",
+		slug: "comercial-vyc",
+	},
+	{
+		name: "Agricola y Cunicola",
+		slug: "agricola-y-cunicola",
+	},
+	{
+		name: "KINIMED (Profesionales Kinesiología)",
+		slug: "kinimed",
+	},
+	{
+		name: "Inmobiliaria AyA S.A.",
+		slug: "aya-inmobiliaria",
+	},
+	// {
+	// 	name: "OTEC Capacítanos (OTEC)",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "Administradora de Fondos de Inversión VyC S.A.",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "Asesoría e Inversiones Trinidad S.A. (Inversiones Internacionales)",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "Crema PublicitariaLtda (Venta de productos Masivos y Servicios de Publicidad)",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "Asociaciones de Agricultores (San Vicente de Tagua Tagua)",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "Constructora Creando SpA (Construcciones y remodelaciones de bienes raíces)",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "KINEMED SpA (Profesionales Kinesiología)",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "Sociedad de Prestaciones Odontológicas AYSLtda (Servicio Dental)",
+	// 	slug: "",
+	// },
+	// {
+	// 	name: "Comercial AYUB (Venta de productos Masivos y Servicios de Publicidad)",
+	// 	slug: "",
+	// },
 ];
 
 export const resources: Array<Resource> = [
@@ -260,5 +350,20 @@ export const resources: Array<Resource> = [
 		title: "Poder Judicial República de Chile",
 		link: "https://www.pjud.cl/home",
 		slug: "pjud",
+	},
+	{
+		title: "Registro Social de Hogares",
+		link: "https://registrosocial.gob.cl",
+		slug: "registrosocial",
+	},
+	{
+		title: "Red de Protección Social",
+		link: "https://www.reddeproteccion.cl/fichas/subsidio_clase_media_para_compra_de_viviendas",
+		slug: "reddeproteccion",
+	},
+	{
+		title: "SERVIU",
+		link: "https://serviumetropolitana.minvu.gob.cl",
+		slug: "serviumetropolitana",
 	},
 ];

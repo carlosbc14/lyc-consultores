@@ -2,13 +2,18 @@
 interface Props {
   id?: string;
   title: string;
-  variant?: "light" | "primary";
+  variant?: "light" | "primary" | "white";
 }
 
 const { id, title, variant } = Astro.props;
 ---
 
-<section {id} class:list={[{ "bg-primary": variant === "primary" }]}>
+<section
+  {id}
+  class:list={[
+    { "bg-primary": variant === "primary", "bg-white": variant === "white" },
+  ]}
+>
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="text-uppercase fw-semibold">{title}</h2>
