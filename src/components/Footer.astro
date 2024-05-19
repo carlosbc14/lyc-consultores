@@ -3,13 +3,16 @@ import FacebookIcon from "../components/FacebookIcon.astro";
 import LinkedInIcon from "../components/LinkedInIcon.astro";
 ---
 
-<footer class="flex-shrink-0 py-4">
-  <div class="container text-center">
-    <div class="row align-items-center">
-      <div class="col-lg-4 text-lg-start">
-        Copyright &copy; www.lycconsultores.cl
+<footer class="text-center py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="text-uppercase mb-4">Ubicación</h4>
+        <p class="mb-0">Pocuro 2255, Providencia</p>
       </div>
-      <div class="col-lg-4 my-3 my-lg-0">
+
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="text-uppercase mb-4">Redes Sociales</h4>
         <a
           class="btn btn-primary text-dark btn-social mx-2"
           href="#!"
@@ -25,10 +28,24 @@ import LinkedInIcon from "../components/LinkedInIcon.astro";
           <LinkedInIcon style="height: 50%;" />
         </a>
       </div>
-      <div class="col-lg-4 text-lg-end"></div>
+
+      <div class="col-lg-4">
+        <img
+          class="border border-4"
+          src="/img/logo.webp"
+          alt="LYC Consultores"
+          height="70"
+        />
+      </div>
     </div>
   </div>
 </footer>
+
+<div class="text-center bg-secondary text-white py-3">
+  <div class="container">
+    <small>Copyright &copy; www.lycconsultores.cl</small>
+  </div>
+</div>
 
 <style>
   .btn-social {
