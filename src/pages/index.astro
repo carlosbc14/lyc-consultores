@@ -116,6 +116,16 @@ import { services, clients, resources } from "../utils";
             <div class="form-group mb-3">
               <input
                 class="form-control"
+                name="name"
+                type="text"
+                placeholder="Nombre y apellido *"
+                required
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <input
+                class="form-control"
                 name="email"
                 type="email"
                 placeholder="Correo Electrónico *"
@@ -148,11 +158,20 @@ import { services, clients, resources } from "../utils";
               class="btn btn-light fs-5 text-uppercase fw-semibold py-3 px-4"
               type="submit"
             >
-              Contactar
+              Enviar
             </button>
+
+            <div id="form-valid-feedback" class="valid-feedback text-center">
+              El correo se envió correctamente.
+            </div>
+            <div
+              id="form-invalid-feedback"
+              class="invalid-feedback text-center"
+            >
+              No se ha podido enviar el correo. Intentelo más tarde.
+            </div>
           </div>
         </form>
-        <a href="mailto:contacto@lycconsultores.cl" id="mailto"></a>
       </div>
     </div>
   </Section>
@@ -209,7 +228,12 @@ import { services, clients, resources } from "../utils";
 
 <script>
   const $form: HTMLFormElement = document.querySelector("#contact-form");
-  const $mailto: HTMLAnchorElement = document.querySelector("#mailto");
+  const $valid_feedback: HTMLDivElement = document.querySelector(
+    "#form-valid-feedback"
+  );
+  const $invalid_feedback: HTMLDivElement = document.querySelector(
+    "#form-invalid-feedback"
+  );
 
   $form.addEventListener("submit", handleSubmit);
 
@@ -217,15 +241,32 @@ import { services, clients, resources } from "../utils";
     event.preventDefault();
 
     const form: FormData = new FormData(this);
+    const name: FormDataEntryValue = form.get("name");
+    const from: FormDataEntryValue = form.get("email");
     const subject: FormDataEntryValue = form.get("subject");
     const body: FormDataEntryValue = form.get("message");
+    console.log(JSON.stringify({ name, from, subject, body }));
 
-    if (typeof subject !== "string" || typeof body !== "string") return;
+    if (
+      typeof name !== "string" ||
+      typeof from !== "string" ||
+      typeof subject !== "string" ||
+      typeof body !== "string"
+    )
+      return;
 
-    $mailto.setAttribute(
-      "href",
-      `mailto:contacto@lycconsultores.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    );
-    $mailto.click();
+    fetch("https://send-mail-api.lycconsultores.cl", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, from, subject, body }),
+    })
+      .then(() => {
+        $invalid_feedback.setAttribute("style", "display: none;");
+        $valid_feedback.setAttribute("style", "display: block;");
+      })
+      .catch(() => {
+        $valid_feedback.setAttribute("style", "display: none;");
+        $invalid_feedback.setAttribute("style", "display: block;");
+      });
   }
 </script>
