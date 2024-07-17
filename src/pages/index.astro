@@ -13,7 +13,7 @@ import { services, clients, resources } from "../utils";
           <p class="lead">Un poder que hace brillar su negocio</p>
           <a
             class="btn btn-primary fs-5 text-uppercase fw-semibold py-3 px-4"
-            href="#contact"
+            href="#contacto"
           >
             Contáctanos
           </a>
@@ -22,7 +22,7 @@ import { services, clients, resources } from "../utils";
     </div>
   </header>
 
-  <Section id="services" title="Nuestros servicios">
+  <Section id="servicios" title="Nuestros servicios">
     <div class="row">
       {
         services.map(({ title, description, slug }) => (
@@ -38,7 +38,7 @@ import { services, clients, resources } from "../utils";
               <div class="card-body">
                 <h5 class="card-title">{title}</h5>
                 <p class="card-text">{description}</p>
-                <a href={`/services/${slug}`} class="btn btn-primary">
+                <a href={`/servicios/${slug}`} class="btn btn-primary">
                   Leer más
                 </a>
               </div>
@@ -49,7 +49,7 @@ import { services, clients, resources } from "../utils";
     </div>
   </Section>
 
-  <Section id="clients" title="Nuestros clientes" variant="primary">
+  <Section id="clientes" title="Nuestros clientes" variant="primary">
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4">
       {
         clients.map(({ name, slug }) => (
@@ -70,7 +70,7 @@ import { services, clients, resources } from "../utils";
     </div>
   </Section>
 
-  <Section id="official-resources" title="Recursos Oficiales">
+  <Section id="recursos-oficiales" title="Recursos Oficiales">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
       {
         resources.map(({ title, link, slug }) => (
@@ -98,7 +98,7 @@ import { services, clients, resources } from "../utils";
     </div>
   </Section>
 
-  <Section id="contact" title="Contáctanos" variant="primary">
+  <Section id="contacto" title="Contáctanos" variant="primary">
     <div class="row">
       <div class="col-lg-6 mb-lg-3">
         <iframe

@@ -21,7 +21,7 @@ export const services: Array<Service> = [
 		title: "Expertos en cada área",
 		description:
 			"Contamos con personal calificado y servicios de ingenieros enfocados en procesos.",
-		slug: "experts",
+		slug: "expertos",
 		htmlContent: `
 		<h5>Nuestros Profesionales</h5>
 		<ul>
@@ -53,7 +53,7 @@ export const services: Array<Service> = [
 		title: "Asesorías y consultorías",
 		description:
 			"Trabajamos día y noche para cumplir con las necesidades de nuestros clientes de manera profesional.",
-		slug: "advisory-consulting",
+		slug: "asesorias-consultorias",
 		htmlContent: `
 		<ul>
 			<li>En cambios organizacional y reestructuración de negocios</li>
@@ -69,7 +69,7 @@ export const services: Array<Service> = [
 		title: "Mejoras empresarial",
 		description:
 			"El mejor asesoramiento en cuanto a mejora de procesos, rentabilidad y planes de crecimiento controlado.",
-		slug: "improvements",
+		slug: "mejoras-empresarial",
 		htmlContent: `
 		<ul>
 			<li>Mejoras de negocios</li>
@@ -82,7 +82,7 @@ export const services: Array<Service> = [
 		title: "Valoración financiera y gestión",
 		description:
 			"Servicio de valoración de empresas y evaluación de proyectos.",
-		slug: "assessment",
+		slug: "valoracion-financiera-gestion",
 		htmlContent: `
 		<ul>
 			<li>Valoración de empresas para inversiones</li>
@@ -99,7 +99,7 @@ export const services: Array<Service> = [
 		title: "Contabilidad y remuneraciones",
 		description:
 			"Gestión financiera integral y cumplimiento legal.",
-		slug: "accounting-remunerations",
+		slug: "contabilidad-remuneraciones",
 		htmlContent: `
 		<ul>
 			<li>Confección de Balances y Estado de Resultados bajo normas IFRS</li>
@@ -117,7 +117,7 @@ export const services: Array<Service> = [
 		title: "Servicios tributarios y legales",
 		description:
 			"Orientados a la empresa (reorganización de patrimonio, gestión de riesgo, optimización tributaria, gestión de trabajadores, entre otros).",
-		slug: "legal-services",
+		slug: "servicios-tributarios-legales",
 		htmlContent: `
 		<ul>
 			<li>Reclamación al SII por impuestos mal cobrados o en exceso</li>
@@ -145,7 +145,7 @@ export const services: Array<Service> = [
 		title: "Auditorias",
 		description:
 			"Servicio de auditoria tributaria, financiera, procesos y outsourcing.",
-		slug: "audits",
+		slug: "auditorias",
 		htmlContent: `
 		<ul>
 			<li>Auditoria Estados Financieros bajo normas IFRS</li>
@@ -163,7 +163,7 @@ export const services: Array<Service> = [
 		title: "Marketing y ventas",
 		description:
 			"Impulsa tus Ventas con Estrategias de Marketing.",
-		slug: "marketing",
+		slug: "marketing-ventas",
 		htmlContent: `
 		<ul>
 			<li>Análisis de Mercado</li>
@@ -178,7 +178,7 @@ export const services: Array<Service> = [
 		title: "Servicios de procesos y tecnologías",
 		description:
 			"Optimización tecnológica para eficiencia empresarial. Desde procesos de IT hasta asesoría en control de stock para logística.",
-		slug: "processes",
+		slug: "servicios-procesos-tecnologias",
 		htmlContent: `
 		<ul>
 			<li>Procesos de IT</li>

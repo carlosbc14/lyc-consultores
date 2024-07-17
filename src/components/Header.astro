@@ -31,15 +31,15 @@ import { services, resources } from "../utils";
           <a class="nav-link" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">Nosotros</a>
+          <a class="nav-link" href="/nosotros">Nosotros</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/#services">Servicios</a>
+          <a class="nav-link dropdown-toggle" href="/#servicios">Servicios</a>
           <ul class="dropdown-menu">
             {
               services.map(({ title, slug }) => (
                 <li>
-                  <a class="dropdown-item" href={`/services/${slug}`}>
+                  <a class="dropdown-item" href={`/servicios/${slug}`}>
                     {title}
                   </a>
                 </li>
@@ -48,10 +48,10 @@ import { services, resources } from "../utils";
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#clients">Clientes</a>
+          <a class="nav-link" href="/#clientes">Clientes</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/#official-resources">
+          <a class="nav-link dropdown-toggle" href="/#recursos-oficiales">
             Recursos Oficiales
           </a>
           <ul class="dropdown-menu">
@@ -67,7 +67,7 @@ import { services, resources } from "../utils";
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#contact">Contacto</a>
+          <a class="nav-link" href="/#contacto">Contacto</a>
         </li>
       </ul>
     </div>
