@@ -13,7 +13,10 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 ---
 
-<Layout title={`LYC Consultores - ${service?.title}`}>
+<Layout
+  title={`LYC Consultores - ${service?.title}`}
+  description={service?.description}
+>
   <section id="service" class="h-100">
     <div class="container-fluid p-0 h-100">
       <div class="row g-0 h-100">
