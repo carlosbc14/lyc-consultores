@@ -93,7 +93,14 @@ const { title, description } = Astro.props;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/img/logo.webp" />
-    <meta property="og:url" content={Astro.url.href} />
+    {
+      import.meta.env.WEB_URL && (
+        <meta
+          property="og:url"
+          content={import.meta.env.WEB_URL + Astro.url.pathname}
+        />
+      )
+    }
     <meta property="og:type" content="website" />
     <title>{title}</title>
   </head>
